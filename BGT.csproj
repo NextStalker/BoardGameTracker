@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BGT.Domain\**" />
+    <Compile Remove="BGT.Persistence\**" />
+    <Content Remove="BGT.Domain\**" />
+    <Content Remove="BGT.Persistence\**" />
+    <EmbeddedResource Remove="BGT.Domain\**" />
+    <EmbeddedResource Remove="BGT.Persistence\**" />
+    <None Remove="BGT.Domain\**" />
+    <None Remove="BGT.Persistence\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.16" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+</Project>
