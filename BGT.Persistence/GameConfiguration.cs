@@ -11,7 +11,8 @@ namespace BGT.Persistence
             builder.ToTable("Game");
 
             builder.HasKey(p => p.Id);
-            builder.Property(p => p.Id).ValueGeneratedOnAdd();
+            builder.Property(p => p.Id).HasColumnName("ID").ValueGeneratedOnAdd();
+            builder.Property(p => p.Name).HasColumnName("NAME");
         }
     }
 }

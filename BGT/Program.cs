@@ -1,3 +1,7 @@
+using BGT.Persistence.Games.Commands;
+using System.Reflection;
+using BGT.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblies(new []{typeof(CreateGameRequest).GetTypeInfo().Assembly }));
+
+builder.Services.AddDbContextFactory<GamesContext>(lifetime: ServiceLifetime.Scoped);
 
 var app = builder.Build();
 
